@@ -1,0 +1,22 @@
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService (3)\TestSCADAConsoleApplication\bin\Debug\TestSCADAConsoleApplication.exe.config
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService (3)\TestSCADAConsoleApplication\obj\Debug\TestSCADAConsoleApplication.csprojResolveAssemblyReference.cache
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService (3)\TestSCADAConsoleApplication\bin\Debug\TestSCADAConsoleApplication.exe
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService (3)\TestSCADAConsoleApplication\bin\Debug\TestSCADAConsoleApplication.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService (3)\TestSCADAConsoleApplication\bin\Debug\WebServiceContracts.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService (3)\TestSCADAConsoleApplication\bin\Debug\WebServiceContracts.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService (3)\TestSCADAConsoleApplication\obj\Debug\TestSCADAConsoleApplication.exe
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService (3)\TestSCADAConsoleApplication\obj\Debug\TestSCADAConsoleApplication.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Debug\TestSCADAConsoleApplication.exe.config
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\obj\Debug\TestSCADAConsoleApplication.exe
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\obj\Debug\TestSCADAConsoleApplication.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Debug\TestSCADAConsoleApplication.exe
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Debug\TestSCADAConsoleApplication.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Debug\WebServiceContracts.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Debug\WebServiceContracts.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\obj\Debug\TestSCADAConsoleApplication.csprojResolveAssemblyReference.cache
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Debug\SCADADataContracts.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Debug\SCADADataContracts.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Debug\EntityFramework.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Debug\EntityFramework.xml
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Debug\EntityFramework.SqlServer.xml

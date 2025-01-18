@@ -1,0 +1,568 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SCADACloudDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="SCADACloudDBModel.Account" />
+    <EntitySet Name="AccountTerminals" EntityType="SCADACloudDBModel.AccountTerminal" />
+    <EntitySet Name="ActiveModes" EntityType="SCADACloudDBModel.ActiveMode" />
+    <EntitySet Name="Activities" EntityType="SCADACloudDBModel.Activity" />
+    <EntitySet Name="Components" EntityType="SCADACloudDBModel.Component" />
+    <EntitySet Name="ComponentItems" EntityType="SCADACloudDBModel.ComponentItem" />
+    <EntitySet Name="ComponentTypes" EntityType="SCADACloudDBModel.ComponentType" />
+    <EntitySet Name="Formulae" EntityType="SCADACloudDBModel.Formula" />
+    <EntitySet Name="Manufactures" EntityType="SCADACloudDBModel.Manufacture" />
+    <EntitySet Name="MeasurementUnits" EntityType="SCADACloudDBModel.MeasurementUnit" />
+    <EntitySet Name="Parameters" EntityType="SCADACloudDBModel.Parameter" />
+    <EntitySet Name="Ports" EntityType="SCADACloudDBModel.Port" />
+    <EntitySet Name="PortTypes" EntityType="SCADACloudDBModel.PortType" />
+    <EntitySet Name="Roles" EntityType="SCADACloudDBModel.Role" />
+    <EntitySet Name="sysdiagrams" EntityType="SCADACloudDBModel.sysdiagram" />
+    <EntitySet Name="Terminals" EntityType="SCADACloudDBModel.Terminal" />
+    <EntitySet Name="TerminalComponents" EntityType="SCADACloudDBModel.TerminalComponent" />
+    <EntitySet Name="TerminalItems" EntityType="SCADACloudDBModel.TerminalItem" />
+    <EntitySet Name="UnitItems" EntityType="SCADACloudDBModel.UnitItem" />
+    <EntitySet Name="UnitTypes" EntityType="SCADACloudDBModel.UnitType" />
+    <AssociationSet Name="FK_AccountTerminal_Account" Association="SCADACloudDBModel.FK_AccountTerminal_Account">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="AccountTerminal" EntitySet="AccountTerminals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AccountTerminal_Terminal" Association="SCADACloudDBModel.FK_AccountTerminal_Terminal">
+      <End Role="Terminal" EntitySet="Terminals" />
+      <End Role="AccountTerminal" EntitySet="AccountTerminals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActiveMode_Role" Association="SCADACloudDBModel.FK_ActiveMode_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="ActiveMode" EntitySet="ActiveModes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalComponent_ActiveMode" Association="SCADACloudDBModel.FK_TerminalComponent_ActiveMode">
+      <End Role="ActiveMode" EntitySet="ActiveModes" />
+      <End Role="TerminalComponent" EntitySet="TerminalComponents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Activity_TerminalComponent" Association="SCADACloudDBModel.FK_Activity_TerminalComponent">
+      <End Role="TerminalComponent" EntitySet="TerminalComponents" />
+      <End Role="Activity" EntitySet="Activities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Activity_TerminalItem" Association="SCADACloudDBModel.FK_Activity_TerminalItem">
+      <End Role="TerminalItem" EntitySet="TerminalItems" />
+      <End Role="Activity" EntitySet="Activities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Component_ComponentType" Association="SCADACloudDBModel.FK_Component_ComponentType">
+      <End Role="ComponentType" EntitySet="ComponentTypes" />
+      <End Role="Component" EntitySet="Components" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Component_Manufacture" Association="SCADACloudDBModel.FK_Component_Manufacture">
+      <End Role="Manufacture" EntitySet="Manufactures" />
+      <End Role="Component" EntitySet="Components" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComponentItem_Component" Association="SCADACloudDBModel.FK_ComponentItem_Component">
+      <End Role="Component" EntitySet="Components" />
+      <End Role="ComponentItem" EntitySet="ComponentItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalComponent_Component" Association="SCADACloudDBModel.FK_TerminalComponent_Component">
+      <End Role="Component" EntitySet="Components" />
+      <End Role="TerminalComponent" EntitySet="TerminalComponents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComponentRole_Formula" Association="SCADACloudDBModel.FK_ComponentRole_Formula">
+      <End Role="Formula" EntitySet="Formulae" />
+      <End Role="Role" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Parameter_Formula" Association="SCADACloudDBModel.FK_Parameter_Formula">
+      <End Role="Formula" EntitySet="Formulae" />
+      <End Role="Parameter" EntitySet="Parameters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComponentRole_MeasurementUnit" Association="SCADACloudDBModel.FK_ComponentRole_MeasurementUnit">
+      <End Role="MeasurementUnit" EntitySet="MeasurementUnits" />
+      <End Role="Role" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeasurementUnit_MeasurementUnit" Association="SCADACloudDBModel.FK_MeasurementUnit_MeasurementUnit">
+      <End Role="MeasurementUnit" EntitySet="MeasurementUnits" />
+      <End Role="MeasurementUnit1" EntitySet="MeasurementUnits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComponentRole_ComponentRole" Association="SCADACloudDBModel.FK_ComponentRole_ComponentRole">
+      <End Role="Port" EntitySet="Ports" />
+      <End Role="Role" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Port_PortType" Association="SCADACloudDBModel.FK_Port_PortType">
+      <End Role="PortType" EntitySet="PortTypes" />
+      <End Role="Port" EntitySet="Ports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalComponent_Terminal" Association="SCADACloudDBModel.FK_TerminalComponent_Terminal">
+      <End Role="Terminal" EntitySet="Terminals" />
+      <End Role="TerminalComponent" EntitySet="TerminalComponents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalItem_UnitItem" Association="SCADACloudDBModel.FK_TerminalItem_UnitItem">
+      <End Role="UnitItem" EntitySet="UnitItems" />
+      <End Role="TerminalItem" EntitySet="TerminalItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UnitItem_Unit" Association="SCADACloudDBModel.FK_UnitItem_Unit">
+      <End Role="UnitType" EntitySet="UnitTypes" />
+      <End Role="UnitItem" EntitySet="UnitItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UnitItem_UnitItem" Association="SCADACloudDBModel.FK_UnitItem_UnitItem">
+      <End Role="UnitItem" EntitySet="UnitItems" />
+      <End Role="UnitItem1" EntitySet="UnitItems" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LastSavedLatitude" Type="Double" Nullable="false" />
+    <Property Name="LastSavedLongitude" Type="Double" Nullable="false" />
+    <NavigationProperty Name="AccountTerminals" Relationship="SCADACloudDBModel.FK_AccountTerminal_Account" FromRole="Account" ToRole="AccountTerminal" />
+  </EntityType>
+  <EntityType Name="AccountTerminal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccountId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="TerminalId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="SCADACloudDBModel.FK_AccountTerminal_Account" FromRole="AccountTerminal" ToRole="Account" />
+    <NavigationProperty Name="Terminal" Relationship="SCADACloudDBModel.FK_AccountTerminal_Terminal" FromRole="AccountTerminal" ToRole="Terminal" />
+  </EntityType>
+  <EntityType Name="ActiveMode">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="AlertValue" Type="Double" />
+    <Property Name="isForDisplay" Type="Boolean" Nullable="false" />
+    <Property Name="Details" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Role" Relationship="SCADACloudDBModel.FK_ActiveMode_Role" FromRole="ActiveMode" ToRole="Role" />
+    <NavigationProperty Name="TerminalComponents" Relationship="SCADACloudDBModel.FK_TerminalComponent_ActiveMode" FromRole="ActiveMode" ToRole="TerminalComponent" />
+  </EntityType>
+  <EntityType Name="Activity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TerminalItemId" Type="Int32" Nullable="false" />
+    <Property Name="TerminalComponentId" Type="Int32" Nullable="false" />
+    <Property Name="LastValue" Type="Single" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="TerminalComponent" Relationship="SCADACloudDBModel.FK_Activity_TerminalComponent" FromRole="Activity" ToRole="TerminalComponent" />
+    <NavigationProperty Name="TerminalItem" Relationship="SCADACloudDBModel.FK_Activity_TerminalItem" FromRole="Activity" ToRole="TerminalItem" />
+  </EntityType>
+  <EntityType Name="Component">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModelNo" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="ComponentTypeId" Type="Int32" Nullable="false" />
+    <Property Name="ManufactureId" Type="Int32" Nullable="false" />
+    <Property Name="Details" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ComponentType" Relationship="SCADACloudDBModel.FK_Component_ComponentType" FromRole="Component" ToRole="ComponentType" />
+    <NavigationProperty Name="Manufacture" Relationship="SCADACloudDBModel.FK_Component_Manufacture" FromRole="Component" ToRole="Manufacture" />
+    <NavigationProperty Name="ComponentItems" Relationship="SCADACloudDBModel.FK_ComponentItem_Component" FromRole="Component" ToRole="ComponentItem" />
+    <NavigationProperty Name="TerminalComponents" Relationship="SCADACloudDBModel.FK_TerminalComponent_Component" FromRole="Component" ToRole="TerminalComponent" />
+  </EntityType>
+  <EntityType Name="ComponentItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ComponentId" Type="Int32" Nullable="false" />
+    <Property Name="SerialNo" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="IMEI" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="ManufacturedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Component" Relationship="SCADACloudDBModel.FK_ComponentItem_Component" FromRole="ComponentItem" ToRole="Component" />
+  </EntityType>
+  <EntityType Name="ComponentType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Details" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Components" Relationship="SCADACloudDBModel.FK_Component_ComponentType" FromRole="ComponentType" ToRole="Component" />
+  </EntityType>
+  <EntityType Name="Formula">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RegularExpression" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsServerSide" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Roles" Relationship="SCADACloudDBModel.FK_ComponentRole_Formula" FromRole="Formula" ToRole="Role" />
+    <NavigationProperty Name="Parameters" Relationship="SCADACloudDBModel.FK_Parameter_Formula" FromRole="Formula" ToRole="Parameter" />
+  </EntityType>
+  <EntityType Name="Manufacture">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Details" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Components" Relationship="SCADACloudDBModel.FK_Component_Manufacture" FromRole="Manufacture" ToRole="Component" />
+  </EntityType>
+  <EntityType Name="MeasurementUnit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Multiplier" Type="Single" Nullable="false" />
+    <Property Name="BaseUnitId" Type="Int32" />
+    <NavigationProperty Name="Roles" Relationship="SCADACloudDBModel.FK_ComponentRole_MeasurementUnit" FromRole="MeasurementUnit" ToRole="Role" />
+    <NavigationProperty Name="MeasurementUnit1" Relationship="SCADACloudDBModel.FK_MeasurementUnit_MeasurementUnit" FromRole="MeasurementUnit" ToRole="MeasurementUnit1" />
+    <NavigationProperty Name="MeasurementUnit2" Relationship="SCADACloudDBModel.FK_MeasurementUnit_MeasurementUnit" FromRole="MeasurementUnit1" ToRole="MeasurementUnit" />
+  </EntityType>
+  <EntityType Name="Parameter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="Single" Nullable="false" />
+    <Property Name="FormulaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Formula" Relationship="SCADACloudDBModel.FK_Parameter_Formula" FromRole="Parameter" ToRole="Formula" />
+  </EntityType>
+  <EntityType Name="Port">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PortTypeId" Type="Int32" Nullable="false" />
+    <Property Name="PortNo" Type="Byte" Nullable="false" />
+    <Property Name="PortDirection" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Roles" Relationship="SCADACloudDBModel.FK_ComponentRole_ComponentRole" FromRole="Port" ToRole="Role" />
+    <NavigationProperty Name="PortType" Relationship="SCADACloudDBModel.FK_Port_PortType" FromRole="Port" ToRole="PortType" />
+  </EntityType>
+  <EntityType Name="PortType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Details" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Ports" Relationship="SCADACloudDBModel.FK_Port_PortType" FromRole="PortType" ToRole="Port" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="FormulaId" Type="Int32" Nullable="false" />
+    <Property Name="MeasurementUnitId" Type="Int32" Nullable="false" />
+    <Property Name="PortId" Type="Int32" />
+    <NavigationProperty Name="ActiveModes" Relationship="SCADACloudDBModel.FK_ActiveMode_Role" FromRole="Role" ToRole="ActiveMode" />
+    <NavigationProperty Name="Formula" Relationship="SCADACloudDBModel.FK_ComponentRole_Formula" FromRole="Role" ToRole="Formula" />
+    <NavigationProperty Name="MeasurementUnit" Relationship="SCADACloudDBModel.FK_ComponentRole_MeasurementUnit" FromRole="Role" ToRole="MeasurementUnit" />
+    <NavigationProperty Name="Port" Relationship="SCADACloudDBModel.FK_ComponentRole_ComponentRole" FromRole="Role" ToRole="Port" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Terminal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="IsStandard" Type="Boolean" Nullable="false" />
+    <Property Name="Details" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AccountTerminals" Relationship="SCADACloudDBModel.FK_AccountTerminal_Terminal" FromRole="Terminal" ToRole="AccountTerminal" />
+    <NavigationProperty Name="TerminalComponents" Relationship="SCADACloudDBModel.FK_TerminalComponent_Terminal" FromRole="Terminal" ToRole="TerminalComponent" />
+  </EntityType>
+  <EntityType Name="TerminalComponent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TerminalId" Type="Int32" Nullable="false" />
+    <Property Name="ComponentId" Type="Int32" Nullable="false" />
+    <Property Name="ActiveModeId" Type="Int32" />
+    <Property Name="ItemSeqNo" Type="Byte" />
+    <Property Name="Details" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ActiveMode" Relationship="SCADACloudDBModel.FK_TerminalComponent_ActiveMode" FromRole="TerminalComponent" ToRole="ActiveMode" />
+    <NavigationProperty Name="Activities" Relationship="SCADACloudDBModel.FK_Activity_TerminalComponent" FromRole="TerminalComponent" ToRole="Activity" />
+    <NavigationProperty Name="Component" Relationship="SCADACloudDBModel.FK_TerminalComponent_Component" FromRole="TerminalComponent" ToRole="Component" />
+    <NavigationProperty Name="Terminal" Relationship="SCADACloudDBModel.FK_TerminalComponent_Terminal" FromRole="TerminalComponent" ToRole="Terminal" />
+  </EntityType>
+  <EntityType Name="TerminalItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UnitItemId" Type="Int32" />
+    <Property Name="SerialNo" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="ConstructionDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Activities" Relationship="SCADACloudDBModel.FK_Activity_TerminalItem" FromRole="TerminalItem" ToRole="Activity" />
+    <NavigationProperty Name="UnitItem" Relationship="SCADACloudDBModel.FK_TerminalItem_UnitItem" FromRole="TerminalItem" ToRole="UnitItem" />
+  </EntityType>
+  <EntityType Name="UnitItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Latitude" Type="Double" Nullable="false" />
+    <Property Name="Longtitude" Type="Double" Nullable="false" />
+    <Property Name="UnitTypetId" Type="Int32" Nullable="false" />
+    <Property Name="MotherUnitItemId" Type="Int32" />
+    <NavigationProperty Name="TerminalItems" Relationship="SCADACloudDBModel.FK_TerminalItem_UnitItem" FromRole="UnitItem" ToRole="TerminalItem" />
+    <NavigationProperty Name="UnitType" Relationship="SCADACloudDBModel.FK_UnitItem_Unit" FromRole="UnitItem" ToRole="UnitType" />
+    <NavigationProperty Name="UnitItem1" Relationship="SCADACloudDBModel.FK_UnitItem_UnitItem" FromRole="UnitItem" ToRole="UnitItem1" />
+    <NavigationProperty Name="UnitItem2" Relationship="SCADACloudDBModel.FK_UnitItem_UnitItem" FromRole="UnitItem1" ToRole="UnitItem" />
+  </EntityType>
+  <EntityType Name="UnitType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Capacity" Type="Double" Nullable="false" />
+    <Property Name="Details" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UnitItems" Relationship="SCADACloudDBModel.FK_UnitItem_Unit" FromRole="UnitType" ToRole="UnitItem" />
+  </EntityType>
+  <Association Name="FK_AccountTerminal_Account">
+    <End Type="SCADACloudDBModel.Account" Role="Account" Multiplicity="1" />
+    <End Type="SCADACloudDBModel.AccountTerminal" Role="AccountTerminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AccountTerminal">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AccountTerminal_Terminal">
+    <End Type="SCADACloudDBModel.Terminal" Role="Terminal" Multiplicity="1" />
+    <End Type="SCADACloudDBModel.AccountTerminal" Role="AccountTerminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AccountTerminal">
+        <PropertyRef Name="TerminalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActiveMode_Role">
+    <End Type="SCADACloudDBModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="SCADACloudDBModel.ActiveMode" Role="ActiveMode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActiveMode">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalComponent_ActiveMode">
+    <End Type="SCADACloudDBModel.ActiveMode" Role="ActiveMode" Multiplicity="0..1" />
+    <End Type="SCADACloudDBModel.TerminalComponent" Role="TerminalComponent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActiveMode">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TerminalComponent">
+        <PropertyRef Name="ActiveModeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Activity_TerminalComponent">
+    <End Type="SCADACloudDBModel.TerminalComponent" Role="TerminalComponent" Multiplicity="1" />
+    <End Type="SCADACloudDBModel.Activity" Role="Activity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TerminalComponent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Activity">
+        <PropertyRef Name="TerminalComponentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Activity_TerminalItem">
+    <End Type="SCADACloudDBModel.TerminalItem" Role="TerminalItem" Multiplicity="1" />
+    <End Type="SCADACloudDBModel.Activity" Role="Activity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TerminalItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Activity">
+        <PropertyRef Name="TerminalItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Component_ComponentType">
+    <End Type="SCADACloudDBModel.ComponentType" Role="ComponentType" Multiplicity="1" />
+    <End Type="SCADACloudDBModel.Component" Role="Component" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComponentType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Component">
+        <PropertyRef Name="ComponentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Component_Manufacture">
+    <End Type="SCADACloudDBModel.Manufacture" Role="Manufacture" Multiplicity="1" />
+    <End Type="SCADACloudDBModel.Component" Role="Component" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacture">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Component">
+        <PropertyRef Name="ManufactureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComponentItem_Component">
+    <End Type="SCADACloudDBModel.Component" Role="Component" Multiplicity="1" />
+    <End Type="SCADACloudDBModel.ComponentItem" Role="ComponentItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Component">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ComponentItem">
+        <PropertyRef Name="ComponentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalComponent_Component">
+    <End Type="SCADACloudDBModel.Component" Role="Component" Multiplicity="1" />
+    <End Type="SCADACloudDBModel.TerminalComponent" Role="TerminalComponent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Component">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TerminalComponent">
+        <PropertyRef Name="ComponentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComponentRole_Formula">
+    <End Type="SCADACloudDBModel.Formula" Role="Formula" Multiplicity="1" />
+    <End Type="SCADACloudDBModel.Role" Role="Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formula">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Role">
+        <PropertyRef Name="FormulaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Parameter_Formula">
+    <End Type="SCADACloudDBModel.Formula" Role="Formula" Multiplicity="1" />
+    <End Type="SCADACloudDBModel.Parameter" Role="Parameter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formula">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Parameter">
+        <PropertyRef Name="FormulaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComponentRole_MeasurementUnit">
+    <End Type="SCADACloudDBModel.MeasurementUnit" Role="MeasurementUnit" Multiplicity="1" />
+    <End Type="SCADACloudDBModel.Role" Role="Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MeasurementUnit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Role">
+        <PropertyRef Name="MeasurementUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeasurementUnit_MeasurementUnit">
+    <End Type="SCADACloudDBModel.MeasurementUnit" Role="MeasurementUnit" Multiplicity="0..1" />
+    <End Type="SCADACloudDBModel.MeasurementUnit" Role="MeasurementUnit1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MeasurementUnit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MeasurementUnit1">
+        <PropertyRef Name="BaseUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComponentRole_ComponentRole">
+    <End Type="SCADACloudDBModel.Port" Role="Port" Multiplicity="0..1" />
+    <End Type="SCADACloudDBModel.Role" Role="Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Port">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Role">
+        <PropertyRef Name="PortId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Port_PortType">
+    <End Type="SCADACloudDBModel.PortType" Role="PortType" Multiplicity="1" />
+    <End Type="SCADACloudDBModel.Port" Role="Port" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PortType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Port">
+        <PropertyRef Name="PortTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalComponent_Terminal">
+    <End Type="SCADACloudDBModel.Terminal" Role="Terminal" Multiplicity="1" />
+    <End Type="SCADACloudDBModel.TerminalComponent" Role="TerminalComponent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TerminalComponent">
+        <PropertyRef Name="TerminalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalItem_UnitItem">
+    <End Type="SCADACloudDBModel.UnitItem" Role="UnitItem" Multiplicity="0..1" />
+    <End Type="SCADACloudDBModel.TerminalItem" Role="TerminalItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TerminalItem">
+        <PropertyRef Name="UnitItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UnitItem_Unit">
+    <End Type="SCADACloudDBModel.UnitType" Role="UnitType" Multiplicity="1" />
+    <End Type="SCADACloudDBModel.UnitItem" Role="UnitItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UnitItem">
+        <PropertyRef Name="UnitTypetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UnitItem_UnitItem">
+    <End Type="SCADACloudDBModel.UnitItem" Role="UnitItem" Multiplicity="0..1" />
+    <End Type="SCADACloudDBModel.UnitItem" Role="UnitItem1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UnitItem1">
+        <PropertyRef Name="MotherUnitItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

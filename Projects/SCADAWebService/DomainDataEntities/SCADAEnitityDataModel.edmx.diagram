@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e1f168de3152424f9ea30722f8c25021" Name="Diagram1" ZoomLevel="67">
+        <EntityTypeShape EntityType="SCADACloudDBModel.Account" Width="1.5" PointX="8.75" PointY="20.625" />
+        <EntityTypeShape EntityType="SCADACloudDBModel.AccountTerminal" Width="1.625" PointX="5.625" PointY="20.625" />
+        <EntityTypeShape EntityType="SCADACloudDBModel.ActiveMode" Width="1.5" PointX="3.375" PointY="8.125" />
+        <EntityTypeShape EntityType="SCADACloudDBModel.Activity" Width="1.5" PointX="7.875" PointY="1.125" />
+        <EntityTypeShape EntityType="SCADACloudDBModel.Component" Width="1.5" PointX="3.375" PointY="23.875" />
+        <EntityTypeShape EntityType="SCADACloudDBModel.ComponentItem" Width="1.75" PointX="5.625" PointY="24.125" />
+        <EntityTypeShape EntityType="SCADACloudDBModel.ComponentType" Width="1.875" PointX="0.75" PointY="25.5" />
+        <EntityTypeShape EntityType="SCADACloudDBModel.Formula" Width="1.5" PointX="1.875" PointY="4.5" />
+        <EntityTypeShape EntityType="SCADACloudDBModel.Manufacture" Width="1.5" PointX="1.125" PointY="23.125" />
+        <EntityTypeShape EntityType="SCADACloudDBModel.MeasurementUnit" Width="1.75" PointX="1.625" PointY="12" />
+        <EntityTypeShape EntityType="SCADACloudDBModel.Parameter" Width="1.5" PointX="4.125" PointY="4.5" />
+        <EntityTypeShape EntityType="SCADACloudDBModel.Port" Width="1.5" PointX="1.875" PointY="14.875" />
+        <EntityTypeShape EntityType="SCADACloudDBModel.PortType" Width="1.5" PointX="1.875" PointY="18" />
+        <EntityTypeShape EntityType="SCADACloudDBModel.Role" Width="1.5" PointX="1.125" PointY="7.875" />
+        <EntityTypeShape EntityType="SCADACloudDBModel.sysdiagram" Width="1.5" PointX="6.125" PointY="4.75" />
+        <EntityTypeShape EntityType="SCADACloudDBModel.Terminal" Width="1.5" PointX="5.625" PointY="17.375" />
+        <EntityTypeShape EntityType="SCADACloudDBModel.TerminalComponent" Width="1.875" PointX="5.625" PointY="11.5" />
+        <EntityTypeShape EntityType="SCADACloudDBModel.TerminalItem" Width="1.5" PointX="5.625" PointY="1.25" />
+        <EntityTypeShape EntityType="SCADACloudDBModel.UnitItem" Width="1.5" PointX="3.375" PointY="1" />
+        <EntityTypeShape EntityType="SCADACloudDBModel.UnitType" Width="1.5" PointX="1.125" PointY="1.25" />
+        <AssociationConnector Association="SCADACloudDBModel.FK_AccountTerminal_Account" />
+        <AssociationConnector Association="SCADACloudDBModel.FK_AccountTerminal_Terminal" />
+        <AssociationConnector Association="SCADACloudDBModel.FK_ActiveMode_Role" />
+        <AssociationConnector Association="SCADACloudDBModel.FK_TerminalComponent_ActiveMode" />
+        <AssociationConnector Association="SCADACloudDBModel.FK_Activity_TerminalComponent" />
+        <AssociationConnector Association="SCADACloudDBModel.FK_Activity_TerminalItem" />
+        <AssociationConnector Association="SCADACloudDBModel.FK_Component_ComponentType" />
+        <AssociationConnector Association="SCADACloudDBModel.FK_Component_Manufacture" />
+        <AssociationConnector Association="SCADACloudDBModel.FK_ComponentItem_Component" />
+        <AssociationConnector Association="SCADACloudDBModel.FK_TerminalComponent_Component" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="SCADACloudDBModel.FK_ComponentRole_Formula" />
+        <AssociationConnector Association="SCADACloudDBModel.FK_Parameter_Formula" />
+        <AssociationConnector Association="SCADACloudDBModel.FK_ComponentRole_MeasurementUnit" />
+        <AssociationConnector Association="SCADACloudDBModel.FK_MeasurementUnit_MeasurementUnit" />
+        <AssociationConnector Association="SCADACloudDBModel.FK_ComponentRole_ComponentRole" />
+        <AssociationConnector Association="SCADACloudDBModel.FK_Port_PortType" />
+        <AssociationConnector Association="SCADACloudDBModel.FK_TerminalComponent_Terminal" />
+        <AssociationConnector Association="SCADACloudDBModel.FK_TerminalItem_UnitItem" />
+        <AssociationConnector Association="SCADACloudDBModel.FK_UnitItem_Unit" />
+        <AssociationConnector Association="SCADACloudDBModel.FK_UnitItem_UnitItem" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

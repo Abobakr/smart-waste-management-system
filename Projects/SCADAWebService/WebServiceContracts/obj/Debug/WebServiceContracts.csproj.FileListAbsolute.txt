@@ -1,0 +1,10 @@
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService (3)\WebServiceContracts\bin\Debug\WebServiceContracts.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService (3)\WebServiceContracts\bin\Debug\WebServiceContracts.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService (3)\WebServiceContracts\obj\Debug\WebServiceContracts.csprojResolveAssemblyReference.cache
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService (3)\WebServiceContracts\obj\Debug\WebServiceContracts.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService (3)\WebServiceContracts\obj\Debug\WebServiceContracts.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\WebServiceContracts\bin\Debug\WebServiceContracts.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\WebServiceContracts\bin\Debug\WebServiceContracts.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\WebServiceContracts\obj\Debug\WebServiceContracts.csprojResolveAssemblyReference.cache
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\WebServiceContracts\obj\Debug\WebServiceContracts.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\WebServiceContracts\obj\Debug\WebServiceContracts.pdb

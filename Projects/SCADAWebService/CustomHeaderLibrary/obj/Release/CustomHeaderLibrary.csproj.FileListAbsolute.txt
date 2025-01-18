@@ -1,0 +1,5 @@
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\CustomHeaderLibrary\bin\Release\CustomHeaderLibrary.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\CustomHeaderLibrary\bin\Release\CustomHeaderLibrary.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\CustomHeaderLibrary\obj\Release\CustomHeaderLibrary.csprojResolveAssemblyReference.cache
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\CustomHeaderLibrary\obj\Release\CustomHeaderLibrary.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\CustomHeaderLibrary\obj\Release\CustomHeaderLibrary.pdb

@@ -1,0 +1,12 @@
+C:\Users\Abubaker\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADAClientClassLibrary\bin\Release\SCADAClientClassLibrary.dll.config
+C:\Users\Abubaker\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADAClientClassLibrary\bin\Release\SCADAClientClassLibrary.dll
+C:\Users\Abubaker\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADAClientClassLibrary\bin\Release\SCADAClientClassLibrary.pdb
+C:\Users\Abubaker\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADAClientClassLibrary\bin\Release\CustomHeaderLibrary.dll
+C:\Users\Abubaker\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADAClientClassLibrary\bin\Release\SCADADataContracts.dll
+C:\Users\Abubaker\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADAClientClassLibrary\bin\Release\WebServiceContracts.dll
+C:\Users\Abubaker\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADAClientClassLibrary\bin\Release\CustomHeaderLibrary.pdb
+C:\Users\Abubaker\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADAClientClassLibrary\bin\Release\SCADADataContracts.pdb
+C:\Users\Abubaker\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADAClientClassLibrary\bin\Release\WebServiceContracts.pdb
+C:\Users\Abubaker\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADAClientClassLibrary\obj\Release\SCADAClientClassLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Abubaker\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADAClientClassLibrary\obj\Release\SCADAClientClassLibrary.dll
+C:\Users\Abubaker\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADAClientClassLibrary\obj\Release\SCADAClientClassLibrary.pdb

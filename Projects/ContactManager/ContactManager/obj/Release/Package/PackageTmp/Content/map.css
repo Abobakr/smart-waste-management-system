@@ -1,0 +1,45 @@
+﻿#map-canvas {
+    height: 600px;
+    margin: 0px;
+    padding: 0px;
+}
+#save-widget {
+        width: 300px;
+        box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px;
+        background-color: white;
+        padding: 10px;
+        font-family: Roboto, Arial;
+        font-size: 13px;
+        margin: 15px;
+        /*visibility: hidden;*/
+      }
+
+#hr-element {
+    margin-top: 0px;
+}
+
+#autocomplete {
+  width: 100%;
+  height: 25px;
+}
+
+.map-center {
+    height: 35px;
+    width: 35px;
+    background-color: white;
+    background-position: center;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    float: left;
+}
+
+.map-center-bg-image {
+    background-image: url('../images/maps-center.png');
+}
+
+.map-recenter-bg-image {
+    background-image: url('../images/maps-recenter.png');
+}

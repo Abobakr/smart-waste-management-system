@@ -1,0 +1,649 @@
+﻿@model ContactManager.Models.Map
+
+@{
+    ViewBag.Title = "SCADA Map ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+@section AdditionalMeta
+{
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    @Styles.Render("~/Content/map.css")
+}
+
+<h2 id="heading" style="color:DeepSkyBlue  ">Cloud SCADA Map</h2>
+
+
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?AIzaSyAHYCGRctJSmdTavm2TkuQj9nfleDHWv5w&region=TR&language=tr&v=3.exp&signed_in=true&libraries=places">
+    //&libraries=geometry,weather
+</script>
+
+<script type="text/javascript">
+
+    // for string formatting
+    if (!String.prototype.format) {
+        String.prototype.format = function () {
+            var args = arguments;
+            return this.replace(/{(\d+)}/g, function (match, number) {
+                return typeof args[number] != 'undefined'
+                  ? args[number]
+                  : match
+                ;
+            });
+        };
+    }
+
+    // Create the XHR object.
+    function createCORSRequest(method, url, func) {
+
+        var xhr = new XMLHttpRequest();
+
+        // XHR for Chrome/Firefox/Opera/Safari.
+        if ("withCredentials" in xhr) {
+            xhr.open(method, url, false);
+
+            // XDomainRequest for IE.
+        } else if (typeof XDomainRequest != "undefined") {
+            xhr = new XDomainRequest();
+            xhr.open(method, url);
+
+            // CORS not supported.
+        } else {
+            xhr = null;
+        }
+
+        if (xhr != null) {
+
+            xhr.responseType = "application/json";
+
+            xhr.onload = func;
+
+            xhr.onerror = function () {
+                alert('Woops, there was an error making the request.');
+            };
+        }
+
+        return xhr;
+    }
+
+    // For mobile application
+    function detectBrowser() {
+        var useragent = navigator.userAgent;
+        var mapdiv = document.getElementById("map-canvas");
+
+        if (useragent.indexOf('iPhone') != -1 || useragent.indexOf('Android') != -1) {
+            mapdiv.style.width = '100%';
+            mapdiv.style.height = '100%';
+        } else {
+            //mapdiv.style.width = '600px';
+            mapdiv.style.height = '500px';
+        }
+        document.getElementById("hr-element").style.marginTop = '0px';
+    }
+
+
+    // Google Maps API
+    function initialize() {
+
+        //detectBrowser();
+
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": false,
+            "positionClass": "toast-top-center",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+        //Public variables
+        var zoomMinLimit = 12;
+        var zoomScaleLimit = 14;
+        var zoomDefualtLevel = zoomMinLimit + 4;
+        
+        var overlappingPercentageLimit = 75;
+        var requestedBounds = [];
+        var markerCounter = 0;
+        var markersIsHidden = false;
+        var xhrUnitItems = null;
+
+        // Defining MaxMinDataBound
+        var minSW = new google.maps.LatLng(37.5, 32, true);
+        var maxNE = new google.maps.LatLng(38.5, 33, true);
+        var dataBounds = [new google.maps.LatLngBounds(minSW, maxNE)];
+
+        var styles = [
+     {
+         "featureType": "road.arterial",
+         "elementType": "geometry.fill",
+         "stylers": [
+           { "visibility": "on" },
+           { "hue": "#0022ff" },
+           { "color": "#8080d6" },
+           { "lightness": 36 },
+           { "saturation": 65 },
+           { "gamma": 1.13 }
+         ]
+     }, {
+         "featureType": "road.highway",
+         "stylers": [
+           { "hue": "#003bff" }
+         ]
+     }, {
+         "featureType": "landscape.man_made",
+         "elementType": "geometry.fill",
+         "stylers": [
+           { "visibility": "on" },
+           { "hue": "#08ff00" }
+         ]
+     }, {
+         "featureType": "landscape.natural.terrain",
+         "elementType": "geometry.fill",
+         "stylers": [
+           { "visibility": "on" },
+           { "hue": "#ff0000" }
+         ]
+     }
+        ]
+        var styledMap = new google.maps.StyledMapType(styles,
+        { name: "FandFps Style" });
+        
+        var MY_MAPTYPE_ID = 'map_style';
+
+        // Map display
+        var mapOptions = {
+            center: { lat: parseFloat('@Model.center.lat'), lng: parseFloat('@Model.center.lng') },
+            zoom: zoomDefualtLevel,
+
+            disableDefaultUI: true,
+
+            scaleControl:true,
+
+            mapTypeControl: true,
+            mapTypeControlOptions: {
+                mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID],
+                position: google.maps.ControlPosition.BOTTOM_LEFT
+            },
+            mapTypeId: MY_MAPTYPE_ID,
+
+            zoomControl: true,
+            zoomControlOptions: {
+                style: google.maps.ZoomControlStyle.DEFAULT,
+                position: google.maps.ControlPosition.LEFT_BOTTOM
+            }
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+          mapOptions);
+
+
+        //  ****************** 
+        var acOptions = {
+            //types: ['establishment']
+        };
+        var autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'), acOptions);
+        autocomplete.bindTo('bounds', map);
+       
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var place = autocomplete.getPlace();
+            if (place.geometry.viewport) {
+                map.fitBounds(place.geometry.viewport);
+            } else {
+                map.setCenter(place.geometry.location);
+            }
+            map.setZoom(zoomMinLimit); //zoomMinLimit
+        });
+        //  ******************
+
+
+        //Associate the styled map with the MapTypeId and set it to display.
+        map.mapTypes.set(MY_MAPTYPE_ID, styledMap);
+        //map.setMapTypeId(MY_MAPTYPE_ID);
+
+
+        // Create a new SaveWidgetOptions object for Google Sydney.
+        var saveWidgetOptions = {
+            place: {
+                location: map.getCenter(),
+                query: 'Mevlana üniversitesi konya'
+            },
+            attribution: {
+                source: 'SCADA Cloud Website',
+                webUrl: 'https://localhost:44300/Map'
+            }
+        };
+
+        var widgetDiv = document.getElementById('save-widget');
+        widgetDiv.addEventListener('click', function (){
+
+            $('#save-widget').hide(1000);
+        });
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(widgetDiv);
+
+        // Append a Save Control to the existing save-widget div.
+        saveWidget = new google.maps.SaveWidget(widgetDiv, saveWidgetOptions);
+        
+        //*** change Heading ***
+        function changeHeading(text, color) {
+            document.getElementById("heading").innerText = text;
+            document.getElementById("heading").attributes.getNamedItem("style").value = "color:" + color;
+        }
+        
+        function Max(a, b) {
+            if (a > b)
+                return a;
+            return b;
+        }
+        function Min(a, b) {
+            if (a < b)
+                return a;
+            return b;
+        }
+        function getOverlappingBound(bound1, bound2) {//add another param
+
+            var bound1NE = bound1.getNorthEast();
+            var bound1SW = bound1.getSouthWest();
+
+            var bound2NE = bound2.getNorthEast();
+            var bound2SW = bound2.getSouthWest();
+
+
+            // faster than LatLngBounds.intersects(other:LatLngBounds)
+            if (bound1NE.lat() < bound2SW.lat() || bound1NE.lng() < bound2SW.lng()
+                || bound1SW.lat() > bound2NE.lat() || bound1SW.lng() > bound2NE.lng()) {
+
+                return null;
+            }
+
+            // faster than using LatLngBounds.contains(latLng:LatLng)
+            if (bound1NE.lat() <= bound2NE.lat() && bound1NE.lng() <= bound2NE.lng() && bound1SW.lat() >= bound2SW.lat() && bound1SW.lng() >= bound2SW.lng()) {
+                return bound1;
+            }
+            if (bound2NE.lat() <= bound1NE.lat() && bound2NE.lng() <= bound1NE.lng() && bound2SW.lat() >= bound1SW.lat() && bound2SW.lng() >= bound1SW.lng()) {
+                return bound2;
+            }
+
+            //else getOverlappingBound
+
+            // Defining RequestBoundSW LatLng
+            var reqSW = new google.maps.LatLng(Max(bound1SW.lat(), bound2SW.lat()), Max(bound1SW.lng(), bound2SW.lng()), true);
+
+            // Defining RequestBoundNE LatLng
+            var reqNE = new google.maps.LatLng(Min(bound1NE.lat(), bound2NE.lat()), Min(bound1NE.lng(), bound2NE.lng()), true);
+
+            // Defining RequestBoundBound
+            var requestBound = new google.maps.LatLngBounds(reqSW, reqNE);
+            return requestBound;
+
+        }
+
+        function computeBoundArea(bound) {
+          
+            var boundSW = bound.getSouthWest();
+            var boundNE = bound.getNorthEast();
+
+            var width = Math.abs(boundNE.lng()) - Math.abs(boundSW.lng());
+            var height = Math.abs(boundNE.lat()) - Math.abs(boundSW.lat());
+
+            var boundArea = width * height;
+            return boundArea;
+        }
+        function getOverlappingPercentage(bound1, bound2) {
+            var bound1Area = computeBoundArea(bound1);
+            var bound2Area = computeBoundArea(bound2);
+
+            return bound2Area / bound1Area * 100;
+        }
+
+        function getHlafBoundSides(bound) {
+
+            var boundSW = bound.getSouthWest();
+            var boundNE = bound.getNorthEast();
+            var boundCenter = bound.getCenter();
+
+
+            var width = boundNE.lng() - boundSW.lng();
+            var height = boundNE.lat() - boundSW.lat();
+
+            if (width > height) {
+                var halfBound1 = new google.maps.LatLngBounds(boundSW, new google.maps.LatLng(boundNE.lat(), boundCenter.lng()));
+                var halfBound2 = new google.maps.LatLngBounds(new google.maps.LatLng(boundSW.lat(), boundCenter.lng()), boundNE);
+            }
+            else {
+                var halfBound1 = new google.maps.LatLngBounds(boundSW, new google.maps.LatLng(boundCenter.lat(), boundNE.lng()));
+                var halfBound2 = new google.maps.LatLngBounds(new google.maps.LatLng(boundCenter.lat(), boundSW.lng()), boundNE);
+            }
+         
+            return [halfBound1, halfBound2];
+        }
+        function splitAndHandleRequestBounds(requestBound, overlappingBounds) {
+
+            var boundSides = getHlafBoundSides(requestBound);
+            var requestBound1 = boundSides[0];
+            var requestBound2 = boundSides[1];
+
+            handleRequestBound(requestBound1, overlappingBounds);
+            handleRequestBound(requestBound2, overlappingBounds);
+        }
+
+        function handleRequestBound(requestBound, requestedBounds) {
+
+            var overlappingBounds = [];
+            var overlappingBound = null;
+            var maxOverlappingPercentage = 0;
+
+            for (x in requestedBounds) {
+
+                overlappingBound = getOverlappingBound(requestBound, requestedBounds[x]);
+                if (!overlappingBound) {
+                    continue;
+                }
+
+                if (overlappingBound == requestBound) { // The requestBound inside the the requestedBounds[x]
+                    return;
+                }
+                //else
+                var overlappingPercentage = getOverlappingPercentage(requestBound, overlappingBound);
+                if (overlappingPercentage > maxOverlappingPercentage) {
+                    maxOverlappingPercentage = overlappingPercentage;
+                }
+
+                overlappingBounds.push(overlappingBound);
+            }
+
+            if (!overlappingBound || maxOverlappingPercentage <= overlappingPercentageLimit) { // No overlapping with ALL the previous requested bounds
+                sendUnitItemsRequest(requestBound);
+            }
+            else {
+                splitAndHandleRequestBounds(requestBound, overlappingBounds);
+            }
+        }
+        function getUnitItems() {
+
+            var requestBound = null;
+            for (x in dataBounds) {
+                requestBound = getOverlappingBound(map.getBounds(), dataBounds[x]);
+                if (!requestBound) {
+                    continue;
+                }
+                //else
+                changeHeading("Cloud SCADA Map", "DeepSkyBlue");
+                              
+                handleRequestBound(requestBound, requestedBounds);
+
+                //requestedBounds.push(requestBound);
+                addRequestBound(requestBound);
+            }
+            if (!requestBound) {
+                changeHeading("Request outside of data bounds !!!", "DarkOrange");
+                //return;
+            }
+        }
+        function addRequestBound(requestBound) {
+
+            var isOverlapped = false;
+            
+            var i;
+            for (i = 0; i < requestedBounds.length; i++) {
+
+                overlappingBound = getOverlappingBound(requestBound, requestedBounds[i]);
+                
+                if (overlappingBound == requestedBounds[i]) { // requestBound is bigger
+                    requestedBounds.splice(i, 1);
+                    i--;
+                }
+                else {
+                    if (overlappingBound == requestBound) { // requestBound is smaller
+                        isOverlapped = true;
+                    }
+                }
+            }
+            if (!isOverlapped) {
+                requestedBounds.push(requestBound);
+            }
+        }
+
+        function sendUnitItemsRequest(requestBound) {
+
+            southWestLat = requestBound.getSouthWest().lat();
+            southWestLng = requestBound.getSouthWest().lng();
+            northEastLat = requestBound.getNorthEast().lat();
+            northEastLng = requestBound.getNorthEast().lng();
+
+            var url = "https://rd.fandfps.com/SCADAWebService/SCADAWebService.svc/UnitItems/{0}/{1}/{2}/{3}".format(southWestLat, southWestLng, northEastLat, northEastLng);
+
+            xhrUnitItems = createCORSRequest("GET", url, showUnitItemsOnMap);
+
+            if (!xhrUnitItems) {
+                alert('CORS not supported');
+                return;
+            }
+
+            // Make the actual CORS request.
+            xhrUnitItems.send();
+        }
+        function showUnitItemsOnMap() {
+            var unitItemList = $.parseJSON(xhrUnitItems.responseText);
+
+            $.each(unitItemList, function (key, unitItem) {
+
+                var lat = unitItem.Latitude;
+                var lng = unitItem.Longtitude;
+
+                var location = new google.maps.LatLng(lat, lng);
+                addMarker(location);
+            });
+        }
+
+
+        var markers = [];
+        // Add a marker to the map and push to the array.
+        function addMarker(location) {
+
+            var image = "https://localhost:44300/images/container-empty.png";
+
+            for (i in markers) {
+                if (isEqualByPosition(markers[i].position, location)) {
+                    markers[i].setAnimation(google.maps.Animation.BOUNCE);
+                    return;
+                }
+            }
+
+
+            var fullnessColors = ['green', 'yellow', 'orange', 'red']; //GreenYellow
+            var height = 30; // 
+            var width = 20;
+            var offset = height / 6; // is offset 
+            var maxHeight = height - offset; // range from 0 to maxHeight
+            var fullnessPercentage = 24; // %
+            var fullness = fullnessPercentage / (100/maxHeight);
+            var fullnessLoc = height - fullness;
+
+
+            markerCounter++;
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                title: "Container Number " + markerCounter,
+                animation: google.maps.Animation.DROP,
+                icon: {
+                    //path: google.maps.SymbolPath.BACKWARD_OPEN_ARROW,
+                    path: 'M 0,0 H {0} M 0,{2} V {1} H {0} V {3} H 0 M {0},{3} V {2}'.format(width, height, offset, fullnessLoc),
+                    fillColor: fullnessColors[Math.floor(fullness / (maxHeight / fullnessColors.length))],
+                    fillOpacity: 0.5,
+                    //scale: 0.5,
+                    strokeColor: 'black',
+                    //strokeWeight: 2,
+                    anchor: new google.maps.Point(width/2, height)
+                },
+            });
+            markers.push(marker);
+
+            //var icon = marker.get('icon');
+            //icon.path = '';
+
+            google.maps.event.addListener(marker, 'click', function (e) {
+                // send Ajax request
+                // todo toastr.info("Send Ajax request with coordinates : " + marker.getPosition());
+
+                widgetDiv.getElementsByTagName("strong")[0].textContent = "FanFps - " + marker.getTitle();
+
+                // todo change the query example - make a request to google api to get the address
+                saveWidget.setPlace({ location: marker.getPosition(), query: 'Nur market Medine Cd Selçuklu Konya' });
+
+                window.setTimeout(function () {
+                    map.panTo(marker.getPosition());
+                    $("#save-widget").show(1000);
+                }, 1000);
+                
+            });
+        }
+        function isEqualByPosition(position1, position2) {
+            if (position1.lat() != position2.lat())
+                return false;
+            if (position1.lng() != position2.lng())
+                return false;
+            return true;
+        }
+        // Sets the map on all markers in the array.
+        function setAllMap(map) {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(map);
+            }
+        }
+        // Removes the markers from the map, but keeps them in the array.
+        function hideMarkers() {
+            setAllMap(null);
+        }
+        // Shows any markers currently in the array.
+        function showMarkers() {
+            setAllMap(map);
+        }
+        // Deletes all markers in the array by removing references to them.
+        function deleteMarkers() {
+            clearMarkers();
+            markers = [];
+        }
+        function stopMarkerAnimation() {
+            for (var i = 0; i < markers.length; i++) {
+                if (markers[i].getAnimation() != null) {
+                    markers[i].setAnimation(null);
+                }
+            }
+        }
+
+        // Map bounds changed event
+        function idleFunc() {
+
+            if (map.getZoom() < zoomMinLimit) {
+                changeHeading("Very high zoom level !!!", "DarkOrange ");
+                hideMarkers();
+                markersIsHidden = true;
+                return;
+            }
+            else {
+                if (map.getZoom() >= zoomScaleLimit) {
+
+                }
+
+                if (markersIsHidden) {
+                    showMarkers();
+                    markersIsHidden = false;
+                }
+           
+            }
+
+            stopMarkerAnimation();
+
+            getUnitItems();
+        }
+        // Map bounds changed event
+        google.maps.event.addListener(map, 'idle', idleFunc);
+
+        //Controls State - Set and Reset Map Center
+        var centerControlDiv = document.createElement('div');
+        var centerControl = new CenterControl(centerControlDiv, map);
+
+        centerControlDiv.index = 1;
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(centerControlDiv);
+
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+    // Define a property to hold the center state
+    CenterControl.prototype.center_ = null;
+
+    // Define setters and getters for this property
+    CenterControl.prototype.getCenter = function () {
+        return this.center_;
+    }
+
+    CenterControl.prototype.setCenter = function (center) {
+        this.center_ = center;
+    }
+
+    /** constructor */
+    function CenterControl(controlDiv, map) {
+
+        // We set up a variable for this since we're adding event listeners later.
+
+        var control = this;
+
+        // Set the center property upon construction
+        control.center_ = map.center;
+        controlDiv.style.clear = 'both';
+        controlDiv.setAttribute("Style", "width:40px");
+
+        // Set CSS for the control border
+        var goCenterUI = document.createElement('div');
+        goCenterUI.setAttribute("class", "map-center map-center-bg-image");
+        goCenterUI.title = 'Click to recenter the map';
+       controlDiv.appendChild(goCenterUI);
+
+        // Set CSS for the setCenter control border
+        var setCenterUI = document.createElement('div');
+        setCenterUI.setAttribute("class", "map-center map-recenter-bg-image");
+        setCenterUI.title = 'Click to change the center of the map';
+        controlDiv.appendChild(setCenterUI);
+
+        // Setup the click event listener for 'Center':
+        // simply set the map to the control's current center property.
+        google.maps.event.addDomListener(goCenterUI, 'click', function () {
+            var currentCenter = control.getCenter();
+            map.setCenter(currentCenter);
+        });
+
+        // Setup the click event listener for 'Set':
+        // Set the control's center to the current Map center.
+        google.maps.event.addDomListener(setCenterUI, 'click', function () {
+            var newCenter = map.getCenter();
+            control.setCenter(newCenter);
+            var message = [
+                "Center was set to the current map center", ""
+            ].join('<br>');
+            toastr.success(message);
+        });
+    }
+    
+</script>
+
+<input type="text" id="autocomplete">
+<div id="map-canvas"></div>
+
+@* todo close button*@
+<div id="save-widget" hidden> 
+    <strong>FandFps</strong>
+    <p>
+        Fandfps, Selçuk Üniversitesi Teknoloji Geliştirme Bölgesi
+    </p>
+</div>

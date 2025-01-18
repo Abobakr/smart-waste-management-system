@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+***********************************************************************************************
+website.publishproj
+
+WARNING: DO NOT MODIFY this file, it is used for the web publish process.
+
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+***********************************************************************************************
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.30319</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{03d6c81d-f17d-49e9-947d-9f6989ca898d}</ProjectGuid>
+    <SourceWebPhysicalPath>$(MSBuildThisFileDirectory)</SourceWebPhysicalPath>
+    <SourceWebVirtualPath>/SCADAWebService</SourceWebVirtualPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <SourceWebProject>http://localhost:51971</SourceWebProject>
+    <SourceWebMetabasePath>/IISExpress/7.5/LM/W3SVC/2/ROOT</SourceWebMetabasePath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- for VS2010 we need to use 10.5 but for VS2012+ we should use VisualStudioVersion -->
+    <WebPublishTargetsVersion Condition=" '$(WebPublishTargetsVersion)' =='' and '$(VisualStudioVersion)' == 10.0 ">10.5</WebPublishTargetsVersion>
+    <WebPublishTargetsVersion Condition=" '$(WebPublishTargetsVersion)'=='' ">$(VisualStudioVersion)</WebPublishTargetsVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(WebPublishTargetsVersion)</VSToolsPath>
+    <_WebPublishTargetsPath Condition=" '$(_WebPublishTargetsPath)'=='' ">$(VSToolsPath)</_WebPublishTargetsPath>
+    <AssemblyFileVersion Condition="'$(AssemblyFileVersion)' == ''">1.0.0.0</AssemblyFileVersion>
+    <AssemblyVersion Condition="'$(AssemblyVersion)' == ''">1.0.0.0</AssemblyVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AssemblyAttributes Include="AssemblyFileVersion">
+      <Value>$(AssemblyFileVersion)</Value>
+    </AssemblyAttributes>
+    <AssemblyAttributes Include="AssemblyVersion">
+      <Value>$(AssemblyVersion)</Value>
+    </AssemblyAttributes>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Visual Studio 2013\Projects\SCADAWebService\DomainDataEntities\SCADAEntityFrameworkData.csproj">
+      <Project>{18D0ACD7-7776-49CF-9769-DF787C989209}</Project>
+      <Name>SCADAEntityFrameworkData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Visual Studio 2013\Projects\SCADAWebService\SCADABussinessLogicLayer\SCADABussinessLogicLayer.csproj">
+      <Project>{85E34BDE-603F-49A8-BADE-C77B2DAD7C53}</Project>
+      <Name>SCADABussinessLogicLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Visual Studio 2013\Projects\SCADAWebService\SCADADataAccessLayer\SCADADataAccessLayer.csproj">
+      <Project>{5D0A0964-70B2-4970-8887-B0C5A43BA06F}</Project>
+      <Name>SCADADataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Visual Studio 2013\Projects\SCADAWebService\SCADADataContracts\SCADADataContracts.csproj">
+      <Project>{A5390EE5-F042-4398-B486-87A10E131CA4}</Project>
+      <Name>SCADADataContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Visual Studio 2013\Projects\SCADAWebService\WebServiceContracts\SCADAServiceContracts.csproj">
+      <Project>{7E55D59D-4EBB-4765-AC8B-B0A32F2BB944}</Project>
+      <Name>SCADAServiceContracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(_WebPublishTargetsPath)\Web\Microsoft.WebSite.Publishing.targets" />
+</Project>

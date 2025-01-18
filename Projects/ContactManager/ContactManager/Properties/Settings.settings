@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ContactManager.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ContactManager_tr_com_dataport_api_MessageServices" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://api.dataport.com.tr/MessageServices.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

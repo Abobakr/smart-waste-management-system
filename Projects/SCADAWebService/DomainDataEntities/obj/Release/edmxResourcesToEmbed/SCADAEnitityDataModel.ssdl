@@ -1,0 +1,528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SCADACloudDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LastSavedLatitude" Type="float" Nullable="false" />
+    <Property Name="LastSavedLongitude" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AccountTerminal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="TerminalId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActiveMode">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="AlertValue" Type="float" />
+    <Property Name="isForDisplay" Type="bit" Nullable="false" />
+    <Property Name="Details" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Activity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TerminalItemId" Type="int" Nullable="false" />
+    <Property Name="TerminalComponentId" Type="int" Nullable="false" />
+    <Property Name="LastValue" Type="real" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Component">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModelNo" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="ComponentTypeId" Type="int" Nullable="false" />
+    <Property Name="ManufactureId" Type="int" Nullable="false" />
+    <Property Name="Details" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ComponentItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ComponentId" Type="int" Nullable="false" />
+    <Property Name="SerialNo" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="IMEI" Type="nchar" MaxLength="15" />
+    <Property Name="ManufacturedDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ComponentType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Details" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Formula">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RegularExpression" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsServerSide" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Manufacture">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Details" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="MeasurementUnit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Multiplier" Type="real" Nullable="false" />
+    <Property Name="BaseUnitId" Type="int" />
+  </EntityType>
+  <EntityType Name="Parameter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Value" Type="real" Nullable="false" />
+    <Property Name="FormulaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Port">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PortTypeId" Type="int" Nullable="false" />
+    <Property Name="PortNo" Type="tinyint" Nullable="false" />
+    <Property Name="PortDirection" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PortType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Details" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="25" />
+    <Property Name="FormulaId" Type="int" Nullable="false" />
+    <Property Name="MeasurementUnitId" Type="int" Nullable="false" />
+    <Property Name="PortId" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Terminal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="IsStandard" Type="bit" Nullable="false" />
+    <Property Name="Details" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TerminalComponent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TerminalId" Type="int" Nullable="false" />
+    <Property Name="ComponentId" Type="int" Nullable="false" />
+    <Property Name="ActiveModeId" Type="int" />
+    <Property Name="ItemSeqNo" Type="tinyint" />
+    <Property Name="Details" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TerminalItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UnitItemId" Type="int" />
+    <Property Name="SerialNo" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="ConstructionDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UnitItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Latitude" Type="float" Nullable="false" />
+    <Property Name="Longtitude" Type="float" Nullable="false" />
+    <Property Name="UnitTypetId" Type="int" Nullable="false" />
+    <Property Name="MotherUnitItemId" Type="int" />
+  </EntityType>
+  <EntityType Name="UnitType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Capacity" Type="float" Nullable="false" />
+    <Property Name="Details" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_AccountTerminal_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="AccountTerminal" Type="Self.AccountTerminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AccountTerminal">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AccountTerminal_Terminal">
+    <End Role="Terminal" Type="Self.Terminal" Multiplicity="1" />
+    <End Role="AccountTerminal" Type="Self.AccountTerminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AccountTerminal">
+        <PropertyRef Name="TerminalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActiveMode_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="ActiveMode" Type="Self.ActiveMode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActiveMode">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Activity_TerminalComponent">
+    <End Role="TerminalComponent" Type="Self.TerminalComponent" Multiplicity="1" />
+    <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TerminalComponent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Activity">
+        <PropertyRef Name="TerminalComponentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Activity_TerminalItem">
+    <End Role="TerminalItem" Type="Self.TerminalItem" Multiplicity="1" />
+    <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TerminalItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Activity">
+        <PropertyRef Name="TerminalItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Component_ComponentType">
+    <End Role="ComponentType" Type="Self.ComponentType" Multiplicity="1" />
+    <End Role="Component" Type="Self.Component" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComponentType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Component">
+        <PropertyRef Name="ComponentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Component_Manufacture">
+    <End Role="Manufacture" Type="Self.Manufacture" Multiplicity="1" />
+    <End Role="Component" Type="Self.Component" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacture">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Component">
+        <PropertyRef Name="ManufactureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComponentItem_Component">
+    <End Role="Component" Type="Self.Component" Multiplicity="1" />
+    <End Role="ComponentItem" Type="Self.ComponentItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Component">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ComponentItem">
+        <PropertyRef Name="ComponentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComponentRole_ComponentRole">
+    <End Role="Port" Type="Self.Port" Multiplicity="0..1" />
+    <End Role="Role" Type="Self.Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Port">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Role">
+        <PropertyRef Name="PortId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComponentRole_Formula">
+    <End Role="Formula" Type="Self.Formula" Multiplicity="1" />
+    <End Role="Role" Type="Self.Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formula">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Role">
+        <PropertyRef Name="FormulaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComponentRole_MeasurementUnit">
+    <End Role="MeasurementUnit" Type="Self.MeasurementUnit" Multiplicity="1" />
+    <End Role="Role" Type="Self.Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MeasurementUnit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Role">
+        <PropertyRef Name="MeasurementUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeasurementUnit_MeasurementUnit">
+    <End Role="MeasurementUnit" Type="Self.MeasurementUnit" Multiplicity="0..1" />
+    <End Role="MeasurementUnit1" Type="Self.MeasurementUnit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MeasurementUnit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MeasurementUnit1">
+        <PropertyRef Name="BaseUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Parameter_Formula">
+    <End Role="Formula" Type="Self.Formula" Multiplicity="1" />
+    <End Role="Parameter" Type="Self.Parameter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formula">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Parameter">
+        <PropertyRef Name="FormulaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Port_PortType">
+    <End Role="PortType" Type="Self.PortType" Multiplicity="1" />
+    <End Role="Port" Type="Self.Port" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PortType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Port">
+        <PropertyRef Name="PortTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalComponent_ActiveMode">
+    <End Role="ActiveMode" Type="Self.ActiveMode" Multiplicity="0..1" />
+    <End Role="TerminalComponent" Type="Self.TerminalComponent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActiveMode">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TerminalComponent">
+        <PropertyRef Name="ActiveModeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalComponent_Component">
+    <End Role="Component" Type="Self.Component" Multiplicity="1" />
+    <End Role="TerminalComponent" Type="Self.TerminalComponent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Component">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TerminalComponent">
+        <PropertyRef Name="ComponentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalComponent_Terminal">
+    <End Role="Terminal" Type="Self.Terminal" Multiplicity="1" />
+    <End Role="TerminalComponent" Type="Self.TerminalComponent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TerminalComponent">
+        <PropertyRef Name="TerminalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalItem_UnitItem">
+    <End Role="UnitItem" Type="Self.UnitItem" Multiplicity="0..1" />
+    <End Role="TerminalItem" Type="Self.TerminalItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TerminalItem">
+        <PropertyRef Name="UnitItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UnitItem_Unit">
+    <End Role="UnitType" Type="Self.UnitType" Multiplicity="1" />
+    <End Role="UnitItem" Type="Self.UnitItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UnitItem">
+        <PropertyRef Name="UnitTypetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UnitItem_UnitItem">
+    <End Role="UnitItem" Type="Self.UnitItem" Multiplicity="0..1" />
+    <End Role="UnitItem1" Type="Self.UnitItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UnitItem1">
+        <PropertyRef Name="MotherUnitItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SCADACloudDBModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AccountTerminal" EntityType="Self.AccountTerminal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActiveMode" EntityType="Self.ActiveMode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Activity" EntityType="Self.Activity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Component" EntityType="Self.Component" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ComponentItem" EntityType="Self.ComponentItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ComponentType" EntityType="Self.ComponentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Formula" EntityType="Self.Formula" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Manufacture" EntityType="Self.Manufacture" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MeasurementUnit" EntityType="Self.MeasurementUnit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Parameter" EntityType="Self.Parameter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Port" EntityType="Self.Port" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PortType" EntityType="Self.PortType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Terminal" EntityType="Self.Terminal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TerminalComponent" EntityType="Self.TerminalComponent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TerminalItem" EntityType="Self.TerminalItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UnitItem" EntityType="Self.UnitItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UnitType" EntityType="Self.UnitType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AccountTerminal_Account" Association="Self.FK_AccountTerminal_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="AccountTerminal" EntitySet="AccountTerminal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AccountTerminal_Terminal" Association="Self.FK_AccountTerminal_Terminal">
+      <End Role="Terminal" EntitySet="Terminal" />
+      <End Role="AccountTerminal" EntitySet="AccountTerminal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActiveMode_Role" Association="Self.FK_ActiveMode_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="ActiveMode" EntitySet="ActiveMode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Activity_TerminalComponent" Association="Self.FK_Activity_TerminalComponent">
+      <End Role="TerminalComponent" EntitySet="TerminalComponent" />
+      <End Role="Activity" EntitySet="Activity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Activity_TerminalItem" Association="Self.FK_Activity_TerminalItem">
+      <End Role="TerminalItem" EntitySet="TerminalItem" />
+      <End Role="Activity" EntitySet="Activity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Component_ComponentType" Association="Self.FK_Component_ComponentType">
+      <End Role="ComponentType" EntitySet="ComponentType" />
+      <End Role="Component" EntitySet="Component" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Component_Manufacture" Association="Self.FK_Component_Manufacture">
+      <End Role="Manufacture" EntitySet="Manufacture" />
+      <End Role="Component" EntitySet="Component" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComponentItem_Component" Association="Self.FK_ComponentItem_Component">
+      <End Role="Component" EntitySet="Component" />
+      <End Role="ComponentItem" EntitySet="ComponentItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComponentRole_ComponentRole" Association="Self.FK_ComponentRole_ComponentRole">
+      <End Role="Port" EntitySet="Port" />
+      <End Role="Role" EntitySet="Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComponentRole_Formula" Association="Self.FK_ComponentRole_Formula">
+      <End Role="Formula" EntitySet="Formula" />
+      <End Role="Role" EntitySet="Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComponentRole_MeasurementUnit" Association="Self.FK_ComponentRole_MeasurementUnit">
+      <End Role="MeasurementUnit" EntitySet="MeasurementUnit" />
+      <End Role="Role" EntitySet="Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeasurementUnit_MeasurementUnit" Association="Self.FK_MeasurementUnit_MeasurementUnit">
+      <End Role="MeasurementUnit" EntitySet="MeasurementUnit" />
+      <End Role="MeasurementUnit1" EntitySet="MeasurementUnit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Parameter_Formula" Association="Self.FK_Parameter_Formula">
+      <End Role="Formula" EntitySet="Formula" />
+      <End Role="Parameter" EntitySet="Parameter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Port_PortType" Association="Self.FK_Port_PortType">
+      <End Role="PortType" EntitySet="PortType" />
+      <End Role="Port" EntitySet="Port" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalComponent_ActiveMode" Association="Self.FK_TerminalComponent_ActiveMode">
+      <End Role="ActiveMode" EntitySet="ActiveMode" />
+      <End Role="TerminalComponent" EntitySet="TerminalComponent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalComponent_Component" Association="Self.FK_TerminalComponent_Component">
+      <End Role="Component" EntitySet="Component" />
+      <End Role="TerminalComponent" EntitySet="TerminalComponent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalComponent_Terminal" Association="Self.FK_TerminalComponent_Terminal">
+      <End Role="Terminal" EntitySet="Terminal" />
+      <End Role="TerminalComponent" EntitySet="TerminalComponent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalItem_UnitItem" Association="Self.FK_TerminalItem_UnitItem">
+      <End Role="UnitItem" EntitySet="UnitItem" />
+      <End Role="TerminalItem" EntitySet="TerminalItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UnitItem_Unit" Association="Self.FK_UnitItem_Unit">
+      <End Role="UnitType" EntitySet="UnitType" />
+      <End Role="UnitItem" EntitySet="UnitItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UnitItem_UnitItem" Association="Self.FK_UnitItem_UnitItem">
+      <End Role="UnitItem" EntitySet="UnitItem" />
+      <End Role="UnitItem1" EntitySet="UnitItem" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

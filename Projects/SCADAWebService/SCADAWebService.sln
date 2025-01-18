@@ -1,0 +1,90 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCADAClientConsoleApplication", "TestSCADAConsoleApplication\SCADAClientConsoleApplication.csproj", "{3A74E9A1-A98B-4B56-9D43-382A22D2E7F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCADAServiceContracts", "WebServiceContracts\SCADAServiceContracts.csproj", "{7E55D59D-4EBB-4765-AC8B-B0A32F2BB944}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCADADataAccessLayer", "SCADADataAccessLayer\SCADADataAccessLayer.csproj", "{5D0A0964-70B2-4970-8887-B0C5A43BA06F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCADABussinessLogicLayer", "SCADABussinessLogicLayer\SCADABussinessLogicLayer.csproj", "{85E34BDE-603F-49A8-BADE-C77B2DAD7C53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCADAEntityFrameworkData", "DomainDataEntities\SCADAEntityFrameworkData.csproj", "{18D0ACD7-7776-49CF-9769-DF787C989209}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCADADataContracts", "SCADADataContracts\SCADADataContracts.csproj", "{A5390EE5-F042-4398-B486-87A10E131CA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCADACustomHeader", "CustomHeaderLibrary\SCADACustomHeader.csproj", "{0429EE6F-6243-477A-A618-1047DD2BE88C}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SCADAWebService", "http://localhost:51971", "{388A7AAE-DE46-4926-BA37-B5EDD5F91C30}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{7e55d59d-4ebb-4765-ac8b-b0a32f2bb944}|WebServiceContracts.dll;{85E34BDE-603F-49A8-BADE-C77B2DAD7C53}|SCADABussinessLogicLayer.dll;{18D0ACD7-7776-49CF-9769-DF787C989209}|DomainDataEntities.dll;{5D0A0964-70B2-4970-8887-B0C5A43BA06F}|SCADADataAccessLayer.dll;{A5390EE5-F042-4398-B486-87A10E131CA4}|SCADADataContracts.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_51971"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\My Web Sites\SCADAWebService\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51971\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_51971"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\My Web Sites\SCADAWebService\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51971\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\..\..\My Web Sites\SCADAWebService\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCADAWebServiceClientLibrary", "SCADAClientClassLibrary\SCADAWebServiceClientLibrary.csproj", "{9EC95163-28F9-40C7-91E3-08C4E1A61A01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A74E9A1-A98B-4B56-9D43-382A22D2E7F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A74E9A1-A98B-4B56-9D43-382A22D2E7F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A74E9A1-A98B-4B56-9D43-382A22D2E7F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A74E9A1-A98B-4B56-9D43-382A22D2E7F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E55D59D-4EBB-4765-AC8B-B0A32F2BB944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E55D59D-4EBB-4765-AC8B-B0A32F2BB944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E55D59D-4EBB-4765-AC8B-B0A32F2BB944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E55D59D-4EBB-4765-AC8B-B0A32F2BB944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D0A0964-70B2-4970-8887-B0C5A43BA06F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D0A0964-70B2-4970-8887-B0C5A43BA06F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D0A0964-70B2-4970-8887-B0C5A43BA06F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D0A0964-70B2-4970-8887-B0C5A43BA06F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85E34BDE-603F-49A8-BADE-C77B2DAD7C53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85E34BDE-603F-49A8-BADE-C77B2DAD7C53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85E34BDE-603F-49A8-BADE-C77B2DAD7C53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85E34BDE-603F-49A8-BADE-C77B2DAD7C53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18D0ACD7-7776-49CF-9769-DF787C989209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18D0ACD7-7776-49CF-9769-DF787C989209}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18D0ACD7-7776-49CF-9769-DF787C989209}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18D0ACD7-7776-49CF-9769-DF787C989209}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5390EE5-F042-4398-B486-87A10E131CA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5390EE5-F042-4398-B486-87A10E131CA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5390EE5-F042-4398-B486-87A10E131CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5390EE5-F042-4398-B486-87A10E131CA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0429EE6F-6243-477A-A618-1047DD2BE88C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0429EE6F-6243-477A-A618-1047DD2BE88C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0429EE6F-6243-477A-A618-1047DD2BE88C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0429EE6F-6243-477A-A618-1047DD2BE88C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{388A7AAE-DE46-4926-BA37-B5EDD5F91C30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{388A7AAE-DE46-4926-BA37-B5EDD5F91C30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{388A7AAE-DE46-4926-BA37-B5EDD5F91C30}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{388A7AAE-DE46-4926-BA37-B5EDD5F91C30}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{9EC95163-28F9-40C7-91E3-08C4E1A61A01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EC95163-28F9-40C7-91E3-08C4E1A61A01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EC95163-28F9-40C7-91E3-08C4E1A61A01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EC95163-28F9-40C7-91E3-08C4E1A61A01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

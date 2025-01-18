@@ -1,0 +1,11 @@
+-> Make class diagram for the client javascript application.
+	-> Don't request for the already requested terminals.
+
+-> Fix Google Chrome debugging tool warnings.
+
+-> Alert system on Database trigger. 
+	-> Show the alert on the navigation panel on a special column.
+
+-> Use simple get request instead of complex cors-post
+	-> Make the two stage filter
+	-> Applay the account-related results sub groups on the webservice.

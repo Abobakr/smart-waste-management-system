@@ -1,0 +1,16 @@
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Release\TestSCADAConsoleApplication.exe.config
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Release\TestSCADAConsoleApplication.exe
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Release\TestSCADAConsoleApplication.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Release\CustomHeaderLibrary.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Release\EntityFramework.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Release\SCADADataContracts.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Release\WebServiceContracts.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Release\CustomHeaderLibrary.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Release\SCADADataContracts.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Release\WebServiceContracts.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Release\EntityFramework.xml
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\obj\Release\TestSCADAConsoleApplication.csprojResolveAssemblyReference.cache
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\obj\Release\TestSCADAConsoleApplication.exe
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\TestSCADAConsoleApplication\obj\Release\TestSCADAConsoleApplication.pdb

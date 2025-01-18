@@ -1,0 +1,15 @@
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\WebServiceContracts\bin\Debug\WebServiceContracts.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\WebServiceContracts\bin\Debug\WebServiceContracts.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\WebServiceContracts\bin\Debug\SCADABussinessLogicLayer.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\WebServiceContracts\bin\Debug\SCADADataContracts.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\WebServiceContracts\bin\Debug\SCADABussinessLogicLayer.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\WebServiceContracts\bin\Debug\SCADADataContracts.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\WebServiceContracts\obj\Debug\SCADAServiceContracts.csprojResolveAssemblyReference.cache
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\WebServiceContracts\obj\Debug\WebServiceContracts.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\WebServiceContracts\obj\Debug\WebServiceContracts.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\WebServiceContracts\bin\Debug\SCADADataAccessLayer.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\WebServiceContracts\bin\Debug\DomainDataEntities.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\WebServiceContracts\bin\Debug\EntityFramework.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\WebServiceContracts\bin\Debug\SCADADataAccessLayer.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\WebServiceContracts\bin\Debug\DomainDataEntities.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\WebServiceContracts\bin\Debug\EntityFramework.xml

@@ -1,0 +1,11 @@
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADADataAccessLayer\bin\Debug\SCADADataAccessLayer.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADADataAccessLayer\bin\Debug\SCADADataAccessLayer.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADADataAccessLayer\bin\Debug\DomainDataEntities.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADADataAccessLayer\bin\Debug\EntityFramework.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADADataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADADataAccessLayer\bin\Debug\DomainDataEntities.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADADataAccessLayer\bin\Debug\EntityFramework.xml
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADADataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADADataAccessLayer\obj\Debug\SCADADataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADADataAccessLayer\obj\Debug\SCADADataAccessLayer.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADADataAccessLayer\obj\Debug\SCADADataAccessLayer.pdb

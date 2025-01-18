@@ -1,0 +1,13 @@
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADABussinessLogicLayer\bin\Debug\SCADABussinessLogicLayer.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADABussinessLogicLayer\bin\Debug\SCADABussinessLogicLayer.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADABussinessLogicLayer\bin\Debug\DomainDataEntities.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADABussinessLogicLayer\bin\Debug\SCADADataAccessLayer.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADABussinessLogicLayer\bin\Debug\SCADADataContracts.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADABussinessLogicLayer\bin\Debug\EntityFramework.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADABussinessLogicLayer\bin\Debug\DomainDataEntities.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADABussinessLogicLayer\bin\Debug\SCADADataAccessLayer.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADABussinessLogicLayer\bin\Debug\SCADADataContracts.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADABussinessLogicLayer\bin\Debug\EntityFramework.xml
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADABussinessLogicLayer\obj\Debug\SCADABussinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADABussinessLogicLayer\obj\Debug\SCADABussinessLogicLayer.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADABussinessLogicLayer\obj\Debug\SCADABussinessLogicLayer.pdb

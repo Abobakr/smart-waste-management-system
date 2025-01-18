@@ -1,0 +1,14 @@
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADADataContracts\bin\Release\SCADADataContracts.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADADataContracts\bin\Release\SCADADataContracts.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADADataContracts\obj\Release\SCADADataContracts.csprojResolveAssemblyReference.cache
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADADataContracts\obj\Release\SCADADataContracts.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\SCADADataContracts\obj\Release\SCADADataContracts.pdb
+C:\Users\AbuBakr\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADADataContracts\bin\Release\SCADADataContracts.dll
+C:\Users\AbuBakr\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADADataContracts\bin\Release\SCADADataContracts.pdb
+C:\Users\AbuBakr\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADADataContracts\obj\Release\SCADADataContracts.csprojResolveAssemblyReference.cache
+C:\Users\AbuBakr\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADADataContracts\obj\Release\SCADADataContracts.dll
+C:\Users\AbuBakr\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADADataContracts\obj\Release\SCADADataContracts.pdb
+C:\Users\Abubaker\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADADataContracts\bin\Release\SCADADataContracts.dll
+C:\Users\Abubaker\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADADataContracts\bin\Release\SCADADataContracts.pdb
+C:\Users\Abubaker\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADADataContracts\obj\Release\SCADADataContracts.dll
+C:\Users\Abubaker\Documents\Visual Studio 2013\Projects\SCADAWebService\SCADADataContracts\obj\Release\SCADADataContracts.pdb

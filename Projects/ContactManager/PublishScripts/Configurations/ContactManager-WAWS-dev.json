@@ -1,0 +1,21 @@
+{
+    "environmentSettings": {
+        "webSite": {
+            "name": "ContactManager7212",
+            "location": "West Europe"
+        },
+        "databases": [
+            {
+                "connectionStringName": "defaultConnection",
+                "databaseName": "ContactManager7212_db",
+                "serverName": "contact-data",
+                "user": "DBadmin",
+                "password": "",
+                "edition": "",
+                "size": "",
+                "collation": "",
+                "location": "West Europe"
+            }
+        ]
+    }
+}

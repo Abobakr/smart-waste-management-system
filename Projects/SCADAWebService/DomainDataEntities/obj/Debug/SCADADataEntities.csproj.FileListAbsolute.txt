@@ -1,0 +1,8 @@
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\DomainDataEntities\bin\Debug\DomainDataEntities.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\DomainDataEntities\bin\Debug\DomainDataEntities.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\DomainDataEntities\obj\Debug\SCADADataEntities.csprojResolveAssemblyReference.cache
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\DomainDataEntities\obj\Debug\DomainDataEntities.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\DomainDataEntities\obj\Debug\DomainDataEntities.pdb
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\DomainDataEntities\bin\Debug\DomainDataEntities.dll.config
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\DomainDataEntities\bin\Debug\EntityFramework.dll
+C:\Users\administrator.FANDFPS\Documents\Visual Studio 2012\Projects\SCADAWebService\DomainDataEntities\bin\Debug\EntityFramework.xml
