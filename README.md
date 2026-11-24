@@ -1,3 +1,5 @@
+[the diagrams at the end of this application file](https://github.com/Abobakr/smart-waste-management-system/blob/main/ArGe.pdf)
+
 هذا المستودع (Smart Waste Management System) يمثل نظاماً هندسياً متكاملاً ومبتكراً لإدارة النفايات الحضرية، حيث يدمج بين تقنيات إنترنت الأشياء (IoT) وأنظمة التحكم الإشرافي وجمع البيانات (SCADA) لتحويل عمليات جمع النفايات من جداول زمنية تقليدية إلى عمليات ذكية مبنية على البيانات اللحظية (Real-time Data-Driven Operations).
 إليك شرحاً مفصلاً لمحتويات وبنية هذا المستودع بناءً على وثائق البحث والتطوير (ArGe):
 🏗️ 1. الهندسة المعمارية للنظام (System Architecture)
